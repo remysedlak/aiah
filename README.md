@@ -4,7 +4,8 @@ Python 3.12
 1. create pip environment
    -` python -m venv .venv`
 2. enter environment
-   - Windows: `.venv\Scripts\Activate.ps1`
+   - Powershell: `.venv\Scripts\Activate.ps1` 
+   - Cmd: `.venv\Scripts\activate`
    - Mac: `source .venv/bin/activate`
 
 3. install dependencies
