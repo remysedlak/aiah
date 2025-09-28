@@ -1,7 +1,7 @@
 ## Requirements
-Python 3.12
+- Python 3.12
+- Node.js >=22.0.0
 
-Nodejs v22.22
 ## API Setup
 1. create pip environment
    -` python -m venv .venv`
@@ -20,11 +20,13 @@ Nodejs v22.22
    - `http://127.0.0.1:8000/docs#/`
 
 ## Frontend setup
-1. download project libraries
+1. enter frontend folder
+   - `cd frontend`
+3. download project libraries
    - `npm install`
-2. run web server
+4. run web server
    - `npm run dev`
-3. test website
+5. test website
    -  `http://localhost:5173/`
 
 ## JSON Data
