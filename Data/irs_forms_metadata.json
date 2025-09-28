@@ -166,6 +166,12 @@
         "description": "Form used by corporations to help figure estimated tax payments and required installment amounts throughout the year.",
         "use_cases": ["corporate estimated tax", "quarterly payments", "C corporation compliance"],
         "file_url": "https://www.irs.gov/pub/irs-pdf/f1120w.pdf"
-    }
-     
+    },
+    {
+        "form_number": "Schedule M-3 (Form 1120)",
+        "title": "Net Income (Loss) Reconciliation for Corporations With Total Assets of $10 Million or More",
+        "description": "Schedule used by certain corporations to provide a detailed reconciliation of financial accounting net income and taxable income, helping the IRS better understand book-tax differences.",
+        "use_cases": ["corporate reconciliation", "large corporations", "tax compliance"],
+        "file_url": "https://www.irs.gov/pub/irs-pdf/f1120sm3.pdf"
+    }  
 ]
