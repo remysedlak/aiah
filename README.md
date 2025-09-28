@@ -1,6 +1,6 @@
 ## Requirements
 Python 3.12
-## Setup
+## API Setup
 1. create pip environment
    -` python -m venv .venv`
 2. enter environment
