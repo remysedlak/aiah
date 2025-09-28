@@ -159,5 +159,13 @@
         "description": "Form used by self-employed individuals and small business owners to calculate and pay quarterly estimated income taxes.",
         "use_cases": ["self-employment tax", "estimated payments", "quarterly taxes"],
      "file_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
-    }     
+    },
+    {
+        "form_number": "1120-W",
+        "title": "Estimated Tax for Corporations",
+        "description": "Form used by corporations to help figure estimated tax payments and required installment amounts throughout the year.",
+        "use_cases": ["corporate estimated tax", "quarterly payments", "C corporation compliance"],
+        "file_url": "https://www.irs.gov/pub/irs-pdf/f1120w.pdf"
+    }
+     
 ]
