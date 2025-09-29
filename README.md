@@ -1,5 +1,7 @@
 ## Requirements
-Python 3.12
+- Python 3.12
+- Node.js >=22.0.0
+
 ## API Setup
 1. create pip environment
    -` python -m venv .venv`
@@ -16,6 +18,16 @@ Python 3.12
 
 5. test api
    - `http://127.0.0.1:8000/docs#/`
+
+## Frontend setup
+1. enter frontend folder
+   - `cd frontend`
+3. download project libraries
+   - `npm install`
+4. run web server
+   - `npm run dev`
+5. test website
+   -  `http://localhost:5173/`
 
 ## JSON Data
 A structured, extensible dataset that’s not just hackathon-ready but could actually help real small businesses navigate tax compliance. 
