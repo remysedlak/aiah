@@ -173,5 +173,19 @@
         "description": "Schedule used by certain corporations to provide a detailed reconciliation of financial accounting net income and taxable income, helping the IRS better understand book-tax differences.",
         "use_cases": ["corporate reconciliation", "large corporations", "tax compliance"],
         "file_url": "https://www.irs.gov/pub/irs-pdf/f1120sm3.pdf"
-    }  
+    },
+    {
+        "form_number": "Schedule 8812 (Form 1040)",
+        "title": "Credits for Qualifying Children and Other Dependents",
+        "description": "Schedule used to calculate and claim the Child Tax Credit, Additional Child Tax Credit, and Credit for Other Dependents.",
+        "use_cases": ["child tax credit", "dependent credits", "individual and small business owners with families"],
+        "file_url": "https://www.irs.gov/pub/irs-pdf/f1040s8.pdf"
+    },
+    {
+        "form_number": "Schedule SE (Form 1040)",
+        "title": "Self-Employment Tax",
+        "description": "Schedule used to calculate the self-employment tax owed on net earnings from self-employment, which covers Social Security and Medicare taxes.",
+        "use_cases": ["self-employment tax", "freelancers", "independent contractors", "small business owners"],
+        "file_url": "https://www.irs.gov/pub/irs-pdf/f1040sse.pdf"
+    }
 ]
