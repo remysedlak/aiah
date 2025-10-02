@@ -1,2 +1,5 @@
 fastapi[standard]
 pydantic
+sentence_transformers
+numpy
+transformers
