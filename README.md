@@ -14,12 +14,12 @@
    - `pip install requirements.txt `
 
 4. start test server
-   - `fastapi dev app/main.py`
+   - `run.bat` or `run.sh`
 
 5. test api
    - `http://127.0.0.1:8000/docs#/`
 
-## Frontend setup
+## Frontend setup (run in a seperate terminal)
 1. enter frontend folder
    - `cd frontend`
 3. download project libraries
