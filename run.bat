@@ -1,2 +1,2 @@
-cd ui
-npm run dev
+cd backend
+python3 app.py
