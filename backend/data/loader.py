@@ -162,7 +162,7 @@ def chunk_pdf(pdf_path: str, form_number: str) -> List[Dict]:
 
 
 def load_irs_forms_enhanced(
-    file_path: str = "data/irs_forms_metadata.json",
+    file_path: str = "assets/irs_forms_metadata.json",
     download_pdfs: bool = False,
     pdf_dir: str = "data/pdfs"
 ) -> List[Dict]:
@@ -272,8 +272,8 @@ def convert_enhanced_to_bot_format(enhanced_forms: List[Dict]) -> List[Dict]:
 
 # Utility function for one-time processing
 def process_and_save_pdfs(
-    input_json: str = "data/irs_forms_metadata.json",
-    output_json: str = "data/irs_forms_enhanced.json"
+    input_json: str = "assets/irs_forms_metadata.json",
+    output_json: str = "assets/irs_forms_enhanced.json"
 ):
     """
     One-time processing to download PDFs and create enhanced JSON

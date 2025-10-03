@@ -29,8 +29,8 @@ USE_ENHANCED_MODE = os.environ.get("USE_ENHANCED_MODE", "false").lower() == "tru
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Construct absolute paths relative to app.py location
-ENHANCED_DATA_PATH = os.path.join(BASE_DIR, "data", "irs_forms_enhanced.json")
-SIMPLE_DATA_PATH = os.path.join(BASE_DIR, "data", "irs_forms_metadata.json")
+ENHANCED_DATA_PATH = os.path.join(BASE_DIR, "assets", "irs_forms_enhanced.json")
+SIMPLE_DATA_PATH = os.path.join(BASE_DIR, "assets", "irs_forms_metadata.json")
 
 # Global bot instance
 bot = None
