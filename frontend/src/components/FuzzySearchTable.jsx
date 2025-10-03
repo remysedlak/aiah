@@ -209,14 +209,24 @@ const FuzzySearchTable = () => {
 
       {/* Form Detail Modal */}
       {selectedForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-96 overflow-hidden">
+        <div
+          onClick={() => setSelectedForm(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="selected-form-title"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-96 overflow-hidden"
+          >
             <div className="flex justify-between items-center p-6 border-b">
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 id="selected-form-title" className="text-xl font-semibold text-gray-900">
                 Form {selectedForm.form_number}
               </h3>
               <button
                 onClick={() => setSelectedForm(null)}
+                aria-label="Close form detail"
                 className="text-gray-400 hover:text-gray-600 text-2xl transition-colors"
               >
                 ×
