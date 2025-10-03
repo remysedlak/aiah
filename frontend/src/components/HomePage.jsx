@@ -1,6 +1,6 @@
 const HomePage = ({ setActiveTab }) => {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto ">
       {/* Hero Section */}
       <div className="text-center py-12">
         <div className="mb-8">

@@ -20,14 +20,14 @@ const Navbar = ({ activeTab, setActiveTab }) => {
 
   return (
     <>
-      <nav className="bg-white shadow-lg border-b border-gray-200">
+      <nav className="bg-stone-800 shadow-lg border-b text-white border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             {/* Logo/Brand */}
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
                 <span className="text-2xl font-bold text-blue-600">🏛️</span>
-                <span className="ml-2 text-xl font-bold text-gray-900">IRS Assistant</span>
+                <span className="ml-2 text-xl font-bold text-white">FormForge</span>
               </div>
             </div>
 
@@ -37,7 +37,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex items-center px-4 py-2 rounded-lg text-white text-sm font-medium transition-colors ${
                     activeTab === item.id && item.id !== 'help'
                       ? 'bg-blue-600 text-white shadow-md'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
@@ -57,8 +57,8 @@ const Navbar = ({ activeTab, setActiveTab }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-96 overflow-hidden">
             <div className="flex justify-between items-center p-6 border-b">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center">
-                <span className="mr-2">❓</span>
+              <h3 className="text-xl font-semibold text-white flex items-center">
+                <span className="mr-2 text-white">❓</span>
                 Help & Guide
               </h3>
               <button
@@ -72,9 +72,9 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             <div className="p-6 overflow-y-auto max-h-80">
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-3 flex items-center">
+                  <h4 className="text-lg font-medium text-white mb-3 flex items-center">
                     <span className="mr-2">📋</span>
-                    Table Search
+                    <p className="text-white">Table Search</p>
                   </h4>
                   <ul className="text-gray-600 space-y-1 text-sm">
                     <li>• Instant fuzzy search through all IRS forms</li>
@@ -85,7 +85,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-3 flex items-center">
+                  <h4 className="text-lg font-medium text-white mb-3 flex items-center">
                     <span className="mr-2">💬</span>
                     AI Chat
                   </h4>

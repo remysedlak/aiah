@@ -85,7 +85,7 @@ function App() {
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="bg-stone-200  mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tab Content */}
         {activeTab === 'home' ? (
           <HomePage setActiveTab={setActiveTab} />
