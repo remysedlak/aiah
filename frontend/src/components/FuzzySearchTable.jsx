@@ -1,11 +1,16 @@
 import { useState, useEffect, useMemo } from 'react'
 import Fuse from 'fuse.js'
 import { irsFormsData } from '../data/irsFormsData'
+import Pagination from './Pagination'
+import ResultRow from './ResultRow'
+import MobileCard from './MobileCard'
 
 const FuzzySearchTable = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState(irsFormsData)
   const [selectedForm, setSelectedForm] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 5
 
   // Configure Fuse.js for fuzzy search
   const fuse = useMemo(() => {
@@ -30,6 +35,8 @@ const FuzzySearchTable = () => {
       const results = fuse.search(searchTerm)
       setSearchResults(results.map(result => result.item))
     }
+    // Reset to first page whenever the search term or results change
+    setCurrentPage(1)
   }, [searchTerm, fuse])
 
   const handleFormClick = (form) => {
@@ -44,6 +51,12 @@ const FuzzySearchTable = () => {
     setSearchTerm('')
     setSearchResults(irsFormsData)
   }
+
+  // pagination calculations (re-used in render)
+  const totalResults = searchResults.length
+  const totalPages = Math.max(1, Math.ceil(totalResults / itemsPerPage))
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const pageItems = searchResults.slice(startIndex, startIndex + itemsPerPage)
 
   return (
     <div className="bg-white rounded-lg shadow-sm border p-6 lg:max-w-7xl mx-auto">
@@ -94,8 +107,36 @@ const FuzzySearchTable = () => {
 
       {/* Results Table */}
       <div className="overflow-hidden border border-gray-200 rounded-lg lg:max-w-7xl mx-auto">
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
+        {/* make the results area vertically scrollable to avoid extending the full page */}
+        <div className="max-h-[60vh] md:max-h-[70vh] overflow-y-auto">
+          {/* Mobile: stacked cards (no horizontal scrolling) */}
+          <div className="space-y-3 sm:hidden p-2">
+            {pageItems.length === 0 ? (
+              <div className="text-center text-gray-500 py-6">No results</div>
+            ) : (
+              pageItems.map((form) => (
+                <div
+                  key={form.form_number}
+                  onClick={() => handleFormClick(form)}
+                  className="bg-white border rounded-lg p-3 shadow-sm cursor-pointer"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="text-sm font-medium text-blue-600">{form.form_number}</div>
+                    <div className="text-sm text-gray-600">{form.title}</div>
+                  </div>
+                  <div className="mt-2 text-sm text-gray-700 truncate">{form.description}</div>
+                  <div className="mt-2 flex items-center gap-2">
+                    {form.use_cases.slice(0,2).map((uc, idx) => (
+                      <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-blue-100 text-blue-800">{uc}</span>
+                    ))}
+                    {form.use_cases.length > 2 && <span className="text-xs text-gray-600">+{form.use_cases.length - 2}</span>}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+
+          <table className="w-full divide-y divide-gray-200 hidden sm:table">
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -129,64 +170,26 @@ const FuzzySearchTable = () => {
                   </td>
                 </tr>
               ) : (
-                searchResults.map((form, index) => (
-                  <tr 
-                    key={form.form_number} 
-                    className="hover:bg-gray-50 cursor-pointer transition-colors duration-150"
-                    onClick={() => handleFormClick(form)}
-                  >
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-blue-600">
-                        {form.form_number}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="text-sm font-medium text-gray-900 leading-5">
-                        {form.title}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="text-sm text-gray-700 leading-5 max-w-md">
-                        {form.description.length > 120 
-                          ? `${form.description.substring(0, 120)}...`
-                          : form.description
-                        }
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex flex-wrap gap-1">
-                        {form.use_cases.slice(0, 3).map((useCase, idx) => (
-                          <span 
-                            key={idx}
-                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                          >
-                            {useCase}
-                          </span>
-                        ))}
-                        {form.use_cases.length > 3 && (
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                            +{form.use_cases.length - 3}
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleDownload(form.file_url, form.form_number)
-                        }}
-                        className="text-blue-600 hover:text-blue-900 transition-colors"
-                      >
-                        Download PDF
-                      </button>
-                    </td>
-                  </tr>
+                pageItems.map((form, index) => (
+                  <ResultRow
+                    key={form.form_number}
+                    form={form}
+                    onClick={handleFormClick}
+                    onDownload={handleDownload}
+                  />
                 ))
               )}
             </tbody>
           </table>
         </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={(p) => setCurrentPage(p)}
+          startIndex={startIndex}
+          itemsPerPage={itemsPerPage}
+          totalResults={totalResults}
+        />
       </div>
 
       {/* Quick Stats */}
@@ -218,7 +221,7 @@ const FuzzySearchTable = () => {
             aria-modal="true"
             aria-labelledby="selected-form-title"
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-96 overflow-hidden"
+            className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-128 overflow-hidden"
           >
             <div className="flex justify-between items-center p-6 border-b">
               <h3 id="selected-form-title" className="text-xl font-semibold text-gray-900">
