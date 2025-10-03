@@ -68,7 +68,7 @@ const HomePage = ({ setActiveTab }) => {
             Available Form Categories
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/User.svg" alt="Individual Returns" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Individual Returns</h4>
