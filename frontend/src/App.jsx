@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './index.css'
 import Navbar from './components/Navbar'
+import HomePage from './components/HomePage'
 import FormsViewer from './components/FormsViewer'
 import SampleQueries from './components/SampleQueries'
 import FuzzySearchTable from './components/FuzzySearchTable'
@@ -13,7 +14,7 @@ function App() {
   const [useGeneration, setUseGeneration] = useState(true)
   const [topK, setTopK] = useState(3)
   const [showFormsModal, setShowFormsModal] = useState(false)
-  const [activeTab, setActiveTab] = useState('search') // 'search' or 'chat'
+  const [activeTab, setActiveTab] = useState('home') // 'home', 'search' or 'chat'
 
   const API_BASE = 'http://127.0.0.1:8000'
 
@@ -86,7 +87,9 @@ function App() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tab Content */}
-        {activeTab === 'search' ? (
+        {activeTab === 'home' ? (
+          <HomePage setActiveTab={setActiveTab} />
+        ) : activeTab === 'search' ? (
           <FuzzySearchTable />
         ) : (
           <>

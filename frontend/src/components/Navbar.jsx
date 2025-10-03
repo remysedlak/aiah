@@ -4,6 +4,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
   const [isHelpOpen, setIsHelpOpen] = useState(false)
 
   const navItems = [
+    { id: 'home', label: 'Home', icon: '🏠' },
     { id: 'search', label: 'Table Search', icon: '📋' },
     { id: 'chat', label: 'AI Chat', icon: '💬' },
     { id: 'help', label: 'Help', icon: '❓' }
