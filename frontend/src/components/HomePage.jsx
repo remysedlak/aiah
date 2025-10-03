@@ -15,7 +15,7 @@ const HomePage = ({ setActiveTab }) => {
         {/* Feature Cards */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-            <div className="text-4xl mb-4">📋</div>
+            <img src="icons/Search.svg" alt="Search Interface" className="size-15 mb-4 mx-auto" />
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Instant Search</h3>
             <p className="text-gray-600 mb-4">
               Lightning-fast fuzzy search through all IRS forms. Find forms by number, title, description, or use case in real-time.
@@ -27,8 +27,8 @@ const HomePage = ({ setActiveTab }) => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-            <div className="text-4xl mb-4">💬</div>
+          <div className="bg-white rounded-lg items-center shadow-sm border p-6 hover:shadow-md transition-shadow">
+            <img src="icons/ChatInterface.svg" alt="Chat Interface" className="w-12 h-12 mb-4 mx-auto" />
             <h3 className="text-xl font-semibold text-gray-900 mb-2">AI Chat</h3>
             <p className="text-gray-600 mb-4">
               Ask natural language questions and get intelligent answers powered by RAG technology with relevant form suggestions.
@@ -42,24 +42,28 @@ const HomePage = ({ setActiveTab }) => {
         </div>
       </div>
 
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
-        <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-200">
-          <div className="text-2xl font-bold text-blue-600">27+</div>
-          <div className="text-sm text-blue-600">IRS Forms</div>
-        </div>
-        <div className="bg-green-50 rounded-lg p-4 text-center border border-green-200">
-          <div className="text-2xl font-bold text-green-600">⚡</div>
-          <div className="text-sm text-green-600">Instant Search</div>
-        </div>
-        <div className="bg-purple-50 rounded-lg p-4 text-center border border-purple-200">
-          <div className="text-2xl font-bold text-purple-600">🤖</div>
-          <div className="text-sm text-purple-600">AI Powered</div>
-        </div>
-        <div className="bg-orange-50 rounded-lg p-4 text-center border border-orange-200">
-          <div className="text-2xl font-bold text-orange-600">📱</div>
-          <div className="text-sm text-orange-600">Mobile Ready</div>
-        </div>
+
+
+{/* Quick Stats */}
+<div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+  <div className="bg-blue-50 rounded-lg p-4 flex flex-col items-center text-center border border-blue-200">
+    <img src="icons/IRS.svg" alt="IRS Forms" className="w-10 h-10 mb-2" />
+    <div className="text-sm text-blue-600">IRS Forms</div>
+  </div>
+  <div className="bg-green-50 rounded-lg p-4 flex flex-col items-center text-center border border-green-200">
+    <img src="icons/Fast.svg" alt="Instant Search" className="w-10 h-10 mb-2" />
+    <div className="text-sm text-green-600">Instant Search</div>
+  </div>
+  <div className="bg-purple-50 rounded-lg p-4 flex flex-col items-center text-center border border-purple-200">
+    <img src="icons/AIPowered.svg" alt="AI Powered" className="w-10 h-10 mb-2" />
+    <div className="text-sm text-purple-600">AI Powered</div>
+  </div>
+  <div className="bg-orange-50 rounded-lg p-4 flex flex-col items-center text-center border border-orange-200">
+    <img src="icons/MobilePhone.svg" alt="Mobile Ready" className="w-10 h-10 mb-2" />
+    <div className="text-sm text-orange-600">Mobile Ready</div>
+  </div>
+
+
       </div>
 
       {/* Form Categories */}
@@ -164,13 +168,13 @@ const HomePage = ({ setActiveTab }) => {
             Choose your preferred way to find IRS forms. Use the instant search for quick lookups or chat with our AI for detailed guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={() => setActiveTab('search')}
               className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               🔍 Try Instant Search
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('chat')}
               className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
             >
