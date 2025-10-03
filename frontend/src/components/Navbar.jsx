@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 const Navbar = ({ activeTab, setActiveTab }) => {
   const [isHelpOpen, setIsHelpOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
     { id: 'home', label: 'Home', icon: '🏠' },
@@ -16,6 +17,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
     } else {
       setActiveTab(itemId)
     }
+    setIsMobileMenuOpen(false) // Close mobile menu after selection
   }
 
   return (
@@ -26,30 +28,74 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             {/* Logo/Brand */}
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-2xl font-bold text-blue-600">🏛️</span>
-                <span className="ml-2 text-xl font-bold text-white">FormForge</span>
+                <span className="text-2xl font-bold text-blue-400">🏛️</span>
+                <span className="ml-2 text-xl font-bold text-white hidden sm:block">FormForge</span>
+                <span className="ml-2 text-lg font-bold text-white sm:hidden">FF</span>
               </div>
             </div>
 
-            {/* Navigation Items */}
-            <div className="flex items-center space-x-4">
+            {/* Desktop Navigation Items */}
+            <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`flex items-center px-4 py-2 rounded-lg text-white text-sm font-medium transition-colors ${
+                  className={`flex items-center px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeTab === item.id && item.id !== 'help'
                       ? 'bg-blue-600 text-white shadow-md'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      : 'text-gray-300 hover:text-white hover:bg-stone-700'
                   }`}
                 >
-                  <span className="mr-2">{item.icon}</span>
+                  <span className="mr-1 lg:mr-2">{item.icon}</span>
+                  <span className="hidden lg:block">{item.label}</span>
+                  <span className="lg:hidden">{item.label.split(' ')[0]}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Open main menu</span>
+                {!isMobileMenuOpen ? (
+                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                ) : (
+                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-stone-800 border-t border-stone-700">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`flex items-center w-full px-3 py-3 rounded-md text-base font-medium transition-colors ${
+                    activeTab === item.id && item.id !== 'help'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-300 hover:text-white hover:bg-stone-700'
+                  }`}
+                >
+                  <span className="mr-3 text-lg">{item.icon}</span>
                   {item.label}
                 </button>
               ))}
             </div>
           </div>
-        </div>
+        )}
       </nav>
 
       {/* Help Modal */}
@@ -68,13 +114,13 @@ const Navbar = ({ activeTab, setActiveTab }) => {
                 ×
               </button>
             </div>
-            
+
             <div className="p-6 overflow-y-auto max-h-80">
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-medium text-white mb-3 flex items-center">
+                  <h4 className="text-lg font-medium text-gray-900 mb-3 flex items-center">
                     <span className="mr-2">📋</span>
-                    <p className="text-white">Table Search</p>
+                    Table Search
                   </h4>
                   <ul className="text-gray-600 space-y-1 text-sm">
                     <li>• Instant fuzzy search through all IRS forms</li>
@@ -85,7 +131,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-medium text-white mb-3 flex items-center">
+                  <h4 className="text-lg font-medium text-gray-900 mb-3 flex items-center">
                     <span className="mr-2">💬</span>
                     AI Chat
                   </h4>
