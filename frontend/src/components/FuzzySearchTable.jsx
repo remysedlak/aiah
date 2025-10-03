@@ -46,7 +46,7 @@ const FuzzySearchTable = () => {
   }
 
   return (
-    <div className="bg-white lg:max-w-7xl mx-auto rounded-lg shadow-sm border p-6">
+    <div className="bg-white rounded-lg shadow-sm border p-6 lg:max-w-7xl mx-auto">
       {/* Search Header */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
@@ -61,7 +61,7 @@ const FuzzySearchTable = () => {
         
         {/* Search Input */}
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none lg:max-w-7xl mx-auto">
             <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -93,7 +93,7 @@ const FuzzySearchTable = () => {
       </div>
 
       {/* Results Table */}
-      <div className="overflow-hidden border border-gray-200 rounded-lg">
+      <div className="overflow-hidden border border-gray-200 rounded-lg lg:max-w-7xl mx-auto">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">

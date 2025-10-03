@@ -11,7 +11,7 @@ const SampleQueries = ({ onQuerySelect }) => {
   ]
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
+    <div className="bg-white rounded-lg shadow-sm border p-6 mb-6 lg:max-w-7xl mx-auto">
       <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
         <span className="mr-2">💡</span>
         Try these sample questions:
