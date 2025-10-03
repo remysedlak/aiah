@@ -176,7 +176,7 @@ const AIBot = () => {
 
       {/* Results */}
       {response && (
-        <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6">
+        <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 lg:max-w-7xl mx-auto">
           {response.error ? (
             <div className="text-red-600">
               <h3 className="text-lg font-semibold mb-2 flex items-center">

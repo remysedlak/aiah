@@ -34,19 +34,30 @@ const FormsViewer = ({ isOpen, onClose }) => {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-96 overflow-hidden">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/10 backdrop-blur-sm"
+      aria-hidden={!isOpen}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="forms-title"
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[85vh] overflow-hidden"
+      >
         <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-xl font-semibold text-gray-900">Available IRS Forms</h2>
+          <h2 id="forms-title" className="text-xl font-semibold text-gray-900">Available IRS Forms</h2>
           <button
             onClick={onClose}
+            aria-label="Close forms dialog"
             className="text-gray-400 hover:text-gray-600 text-2xl"
           >
             ×
           </button>
         </div>
-        
-        <div className="p-4 overflow-y-auto max-h-80">
+
+        <div className="p-4 overflow-y-auto max-h-[70vh]">
           {loading ? (
             <div className="text-center py-8">
               <div className="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
