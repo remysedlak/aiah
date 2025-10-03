@@ -119,11 +119,11 @@
         "file_url": "https://www.irs.gov/pub/irs-pdf/fw7.pdf"
     },
     {
-        "form_number": "Schedule K-1 (Form 1120-S)",
+        "form_number": "Schedule K-1 (Form 1065)",
         "title": "Shareholder’s Share of Income, Deductions, Credits, etc.",
         "description": "Form provided to each shareholder in an S corporation that details their share of the corporation’s income, deductions, credits, and other items to report on their individual tax return.",
         "use_cases": ["S corporation income", "shareholder reporting", "pass-through income"],
-        "file_url": "https://www.irs.gov/pub/irs-pdf/f1120ssk1.pdf"
+        "file_url": "https://www.irs.gov/pub/irs-pdf/f1065sk1.pdf"
     },
     {
         "form_number": "1095-C",
