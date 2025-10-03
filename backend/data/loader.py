@@ -9,12 +9,7 @@ import re
 from pathlib import Path
 from typing import List, Dict
 import requests
-
-try:
-    import PyPDF2
-except ImportError:
-    print("Warning: PyPDF2 not installed. Install with: pip install PyPDF2")
-    PyPDF2 = None
+import PyPDF2
 
 
 def load_irs_forms(file_path: str = "data/irs_forms_metadata.json") -> List[Dict]:
