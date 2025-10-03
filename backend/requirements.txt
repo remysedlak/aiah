@@ -3,3 +3,4 @@ pydantic
 sentence_transformers
 numpy
 transformers
+PyPDF2
