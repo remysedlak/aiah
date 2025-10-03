@@ -1,6 +1,6 @@
 const HomePage = ({ setActiveTab }) => {
   return (
-    <div className="max-w-4xl mx-auto px-2 sm:px-4">
+    <div className="max-w-4xl mx-auto px-2 sm:px-4 overflow-y-auto">
       {/* Hero Section */}
       <div className="text-center py-4">
         <img src="FormForgeLogoText.png" alt="FormForge Logo" className="mx-auto w-100 mb-2" />

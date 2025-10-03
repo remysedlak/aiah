@@ -46,12 +46,12 @@ const FuzzySearchTable = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border p-6">
+    <div className="bg-white lg:max-w-7xl mx-auto rounded-lg shadow-sm border p-6">
       {/* Search Header */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <span className="mr-2">📋</span>
+            <img src="icons/Search.svg" alt="Search Icon" className="w-6 h-6 mr-2" />
             IRS Forms Search
           </h2>
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">

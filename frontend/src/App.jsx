@@ -80,12 +80,12 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="h-[100dvh] bg-stone-200 flex flex-col overflow-y-auto ">
       {/* Navbar */}
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       
       {/* Main Content */}
-      <div className="bg-stone-200  mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="bg-stone-200 px-4 sm:px-6 lg:px-8 py-8">
         {/* Tab Content */}
         {activeTab === 'home' ? (
           <HomePage setActiveTab={setActiveTab} />
