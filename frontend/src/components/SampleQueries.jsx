@@ -11,8 +11,9 @@ const SampleQueries = ({ onQuerySelect }) => {
   ]
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+    <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
+      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+        <span className="mr-2">💡</span>
         Try these sample questions:
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

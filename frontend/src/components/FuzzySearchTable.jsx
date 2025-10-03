@@ -46,12 +46,15 @@ const FuzzySearchTable = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white rounded-lg shadow-sm border p-6">
       {/* Search Header */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-900">IRS Forms Search</h2>
-          <span className="text-sm text-gray-500">
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+            <span className="mr-2">📋</span>
+            IRS Forms Search
+          </h2>
+          <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
             {searchResults.length} of {irsFormsData.length} forms
           </span>
         </div>
@@ -173,7 +176,7 @@ const FuzzySearchTable = () => {
                           e.stopPropagation()
                           handleDownload(form.file_url, form.form_number)
                         }}
-                        className="text-blue-600 hover:text-blue-900 mr-3"
+                        className="text-blue-600 hover:text-blue-900 transition-colors"
                       >
                         Download PDF
                       </button>
@@ -188,15 +191,15 @@ const FuzzySearchTable = () => {
 
       {/* Quick Stats */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-        <div className="bg-blue-50 rounded-lg p-4">
+        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
           <div className="text-2xl font-bold text-blue-600">{searchResults.length}</div>
           <div className="text-sm text-blue-600">Forms Found</div>
         </div>
-        <div className="bg-green-50 rounded-lg p-4">
+        <div className="bg-green-50 rounded-lg p-4 border border-green-200">
           <div className="text-2xl font-bold text-green-600">{irsFormsData.length}</div>
           <div className="text-sm text-green-600">Total Forms</div>
         </div>
-        <div className="bg-purple-50 rounded-lg p-4">
+        <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
           <div className="text-2xl font-bold text-purple-600">
             {Math.round((searchResults.length / irsFormsData.length) * 100)}%
           </div>
@@ -214,7 +217,7 @@ const FuzzySearchTable = () => {
               </h3>
               <button
                 onClick={() => setSelectedForm(null)}
-                className="text-gray-400 hover:text-gray-600 text-2xl"
+                className="text-gray-400 hover:text-gray-600 text-2xl transition-colors"
               >
                 ×
               </button>
@@ -247,13 +250,13 @@ const FuzzySearchTable = () => {
               <div className="flex gap-3">
                 <button
                   onClick={() => handleDownload(selectedForm.file_url, selectedForm.form_number)}
-                  className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                  className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Download PDF
                 </button>
                 <button
                   onClick={() => setSelectedForm(null)}
-                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors"
+                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
                 >
                   Close
                 </button>
