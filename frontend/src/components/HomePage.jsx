@@ -11,7 +11,7 @@ const HomePage = ({ setActiveTab }) => {
         {/* Feature Cards */}
         <div className="grid gap-6 sm:gap-8 mb-8 sm:mb-12">
           <div className="md:grid md:grid-cols-2 md:gap-8 space-y-6 md:space-y-0">
-            <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 hover:shadow-md transition-shadow">
+            <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 hover:shadow-xl transition-shadow">
               <img src="icons/Search.svg" alt="Search Interface" className="w-12 h-12 sm:w-15 sm:h-15 mb-4 mx-auto" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 text-center">Instant Search</h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base text-center">
@@ -24,7 +24,7 @@ const HomePage = ({ setActiveTab }) => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 hover:shadow-md transition-shadow">
+            <div className="bg-white hover:shadow-xl rounded-lg shadow-sm border p-4 sm:p-6  transition-shadow">
               <img src="icons/ChatInterface.svg" alt="Chat Interface" className="w-12 h-12 mb-4 mx-auto" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 text-center">AI Chat</h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base text-center">
@@ -42,26 +42,42 @@ const HomePage = ({ setActiveTab }) => {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12 px-2">
-        <div className="bg-blue-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-blue-200">
+        <div
+          role="button"
+          tabIndex={0}
+          className="bg-blue-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-blue-100 hover:to-white/50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-200"
+        >
           <img src="icons/IRS.svg" alt="IRS Forms" className="w-8 h-8 sm:w-10 sm:h-10 mb-2" />
           <div className="text-xs sm:text-sm text-blue-600">27+ IRS Forms</div>
         </div>
-        <div className="bg-green-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-green-200">
+        <div
+          role="button"
+          tabIndex={0}
+          className="bg-green-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-green-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-green-100 hover:to-white/50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-green-200"
+        >
           <img src="icons/Fast.svg" alt="Instant Search" className="w-8 h-8 sm:w-10 sm:h-10 mb-2" />
           <div className="text-xs sm:text-sm text-green-600">Instant Search</div>
         </div>
-        <div className="bg-purple-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-purple-200">
+        <div
+          role="button"
+          tabIndex={0}
+          className="bg-purple-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-purple-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-purple-100 hover:to-white/50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-purple-200"
+        >
           <img src="icons/AIPowered.svg" alt="AI Powered" className="w-8 h-8 sm:w-10 sm:h-10 mb-2" />
           <div className="text-xs sm:text-sm text-purple-600">AI Powered</div>
         </div>
-        <div className="bg-orange-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-orange-200">
+        <div
+          role="button"
+          tabIndex={0}
+          className="bg-orange-50 rounded-lg p-3 sm:p-4 flex flex-col items-center text-center border border-orange-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-orange-100 hover:to-white/50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-orange-200"
+        >
           <img src="icons/MobilePhone.svg" alt="Mobile Ready" className="w-8 h-8 sm:w-10 sm:h-10 mb-2" />
           <div className="text-xs sm:text-sm text-orange-600">Mobile Ready</div>
         </div>
       </div>
 
       {/* Form Categories */}
-      <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 mb-8 sm:mb-12">
+      <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6 mb-8 sm:mb-12 hover:shadow-xl transition-shadow">
         <div className="flex flex-row items-center justify-center mx-auto gap-x-2 mb-8">
           <img src="icons/form_categories/Category.svg" alt="Available Forms" className="w-6 h-6" />
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 text-center">
@@ -72,38 +88,38 @@ const HomePage = ({ setActiveTab }) => {
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/User.svg" alt="Individual Returns" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Individual Returns</h4>
-            <p className="text-sm text-gray-600">Forms 1040, 1040-ES, Schedule SE, Schedule 8812</p>
+            <p className="text-sm text-gray-600">1040, 1040-ES, Schedule SE, Schedule 8812</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/Corporate.svg" alt="Business Returns" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Corporate Returns</h4>
-            <p className="text-sm text-gray-600">Forms 1120, 1120-S, 1120-W, Schedule M-3</p>
+            <p className="text-sm text-gray-600">1120, 1120-S, 1120-W, Schedule M-3</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/Employment.svg" alt="Employment Forms" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Employment Forms</h4>
-            <p className="text-sm text-gray-600">Forms W-2, W-4, 941, 940, 944, 1095-C</p>
+            <p className="text-sm text-gray-600">W-2, W-4, 941, 940, 944, 1095-C</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/Handshake.svg" alt="Contractor Forms" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Contractor Forms</h4>
-            <p className="text-sm text-gray-600">Forms 1099-NEC, 1099-MISC, W-9, SS-8</p>
+            <p className="text-sm text-gray-600">1099-NEC, 1099-MISC, W-9, SS-8</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/Handshake.svg" alt="Contractor Forms" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Partnership Forms</h4>
-            <p className="text-sm text-gray-600">Forms 1065, Schedule K-1</p>
+            <p className="text-sm text-gray-600">1065, Schedule K-1</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2"><img src="icons/form_categories/Business.svg" alt="Business Forms" className="w-8 h-8 mx-auto" /></div>
             <h4 className="font-semibold text-gray-900 mb-2">Business Forms</h4>
-            <p className="text-sm text-gray-600">Forms SS-4, 8829, 4562, 2553, 720</p>
+            <p className="text-sm text-gray-600">SS-4, 8829, 4562, 2553, 720</p>
           </div>
         </div>
       </div>
 
       {/* Popular Searches */}
-      <div className="bg-white rounded-lg shadow-sm border p-6 mb-12">
+      <div className="bg-white rounded-lg shadow-sm border p-6 mb-12 hover:shadow-xl transition-shadow">
         <div className="flex flex-row justify-center items-center mb-8">
           <img src="icons/Trending.svg" alt="Trending" className="w-10 h-10 mr-4" />
           <h2 className=" text-2xl text font-bold text-gray-900 text-center">
@@ -161,7 +177,7 @@ const HomePage = ({ setActiveTab }) => {
       </div>
 
       {/* Getting Started */}
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 border border-blue-200">
+  <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 border border-blue-200 transform transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:from-blue-100 hover:to-purple-100 focus-within:shadow-xl">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Ready to Get Started?
@@ -172,15 +188,21 @@ const HomePage = ({ setActiveTab }) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setActiveTab('search')}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            > <img src="icons/Search.svg" alt="Search" className="w-6 h-6 mr-2 inline" />
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-all transform duration-200 ease-in-out hover:shadow-md hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-300 font-medium"
+            >
+              <svg className="w-6 h-6 mr-2 inline" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
+                <path d="M20 20L17 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
               Try Instant Search
             </button>
             <button
               onClick={() => setActiveTab('chat')}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              className="bg-purple-600 text-white px-6 py-3 rounded-lg transition-all transform duration-200 ease-in-out hover:shadow-md hover:scale-105 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-purple-300 font-medium"
             >
-              <img src="icons/ChatInterface.svg" alt="Chat" className="w-6 h-6 mr-2 inline" />
+              <svg className="w-6 h-6 mr-2 inline" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6h24v12H12l-4 4V6z" fill="currentColor" />
+              </svg>
               Chat with AI
             </button>
           </div>
