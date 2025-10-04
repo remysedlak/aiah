@@ -16,7 +16,7 @@ const FuzzySearchTable = () => {
   const fuse = useMemo(() => {
     const options = {
       includeScore: true,
-      threshold: 0.4, // Lower = more strict matching
+      threshold: 0.6, // more permissive fuzzy matching
       keys: [
         { name: 'form_number', weight: 0.3 },
         { name: 'title', weight: 0.3 },
@@ -33,7 +33,21 @@ const FuzzySearchTable = () => {
       setSearchResults(irsFormsData)
     } else {
       const results = fuse.search(searchTerm)
-      setSearchResults(results.map(result => result.item))
+      let items = results.map(result => result.item)
+      // If Fuse returns no results, fall back to a simple case-insensitive substring search
+      if (items.length === 0) {
+        const q = searchTerm.toLowerCase()
+        items = irsFormsData.filter(it => {
+          const useCases = Array.isArray(it.use_cases) ? it.use_cases.join(' ') : ''
+          return (
+            (it.form_number || '').toLowerCase().includes(q) ||
+            (it.title || '').toLowerCase().includes(q) ||
+            (it.description || '').toLowerCase().includes(q) ||
+            useCases.toLowerCase().includes(q)
+          )
+        })
+      }
+      setSearchResults(items)
     }
     // Reset to first page whenever the search term or results change
     setCurrentPage(1)
