@@ -3,7 +3,24 @@ const HomePage = ({ setActiveTab }) => {
     <div className="max-w-4xl mx-auto px-2 sm:px-4 overflow-y-auto">
       {/* Hero Section */}
       <div className="text-center py-4">
-        <img src="FormForgeLogoText.png" alt="FormForge Logo" className="mx-auto w-100 mb-2" />
+        <div className="mx-auto mb-2 relative inline-block group" style={{ width: 'auto' }}>
+          {/* decorative blurred glow that appears on hover */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 rounded-xl opacity-0 transition-all duration-300 transform group-hover:opacity-100 group-hover:scale-105 pointer-events-none"
+            style={{
+              filter: 'blur(20px)',
+              background:
+                'radial-gradient(circle at 25% 25%, rgba(99,102,241,0.22), transparent 25%), radial-gradient(circle at 75% 75%, rgba(139,92,246,0.18), transparent 25%)',
+            }}
+          />
+          <img
+            src="FormForgeLogoText.png"
+            alt="FormForge Logo"
+            className="relative z-10 transition-transform duration-300 transform group-hover:scale-105 group-hover:-translate-y-1 group-hover:rotate-3"
+            style={{ width: '24rem', maxWidth: '100%' }}
+          />
+        </div>
         <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto px-2">
           Your intelligent companion for navigating IRS tax forms. Search instantly or chat with our AI to find exactly what you need.
         </p>
