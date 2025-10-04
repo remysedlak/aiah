@@ -1,52 +1,68 @@
+# Setup Guide
+
 ## Requirements
-- Python 3.12
-- Node.js >=22.0.0
+- Python 3.12+
+- Node.js 22.0.0+
 
-## API Setup
-1. enter backend folder
-   - `cd backend`
-2. create pip environment
-   -` python -m venv .venv`
-3. enter environment
-   - Powershell: `.venv\Scripts\Activate.ps1` 
-   - Cmd: `.venv\Scripts\activate`
-   - Mac: `source .venv/bin/activate`
+## Backend Setup
 
-4. install dependencies
-   - `pip install -r requirements.txt `
+1. **Navigate and create environment**
+```bash
+   cd backend
+   python -m venv .venv
+```
 
-5. process online pdf's (optional)
-   - `python3 utils/process_pdf.py`
-  
-6. launch app
-   - `python3 app.py`
+   2.  Activate environment
 
-7. test api
-   - `http://127.0.0.1:8000/docs#/`
+       - Windows (PowerShell): `.venv\Scripts\Activate.ps1`
+       
+       -  Windows (CMD): `.venv\Scripts\activate`
+       
+       -  Mac/Linux: `source .venv/bin/activate`
+        
+   3.  Install dependencies
 
-## Frontend setup (run in a seperate terminal)
-1. enter frontend folder
-   - `cd frontend`
-2. download project libraries
-   - `npm install`
-3. run web server
-   - `npm run dev`
-4. test website
-   -  `http://localhost:5173/`
+```bash
 
-## JSON Data
-A structured, extensible dataset that’s not just hackathon-ready but could actually help real small businesses navigate tax compliance. 
+   pip install -r requirements.txt
+```
+   4. Process PDFs (optional - enables enhanced search)
 
-# Contents:
+```bash
 
-- Core forms for individuals & small biz (1040, W-4, W-9, W-7, 1099-NEC, 8829, etc.)
+   python utils/process_pdfs.py
+```
+  5. Start server
+```bash
+   # Simple mode (metadata only)
+   python app.py
+   # Enhanced mode (with PDF content)
+   USE_ENHANCED_MODE=true python app.py
+```
+   6. Test API: http://127.0.0.1:8000/docs
 
-- Payroll & employer filings (941, 944, 940, 1095-C, SS-8)
+## Frontend Setup
 
-- Partnerships & S corps (1065, K-1s, 1120-S)
+  1.   Install and run (in new terminal)
 
-- Corporations (1120, 1120-W, Schedule M-3)
+```bash
 
-- Extra compliance tools (SS-4, 2848, 4562, 720)
+   cd frontend
+   npm install
+   npm run dev
+```
+ 2, Open app: http://localhost:5173
 
-That’s a well-rounded dataset for retrieval and chatbot demos — and the JSON format means you can keep scaling it easily.
+## Dataset
+
+Comprehensive IRS forms covering:
+
+    Individual & Small Business: 1040, W-4, W-9, W-7, 1099-NEC, 8829
+    Payroll & Employers: 941, 944, 940, 1095-C, SS-8
+    Partnerships & S-Corps: 1065, K-1, 1120-S
+    Corporations: 1120, 1120-W, Schedule M-3
+    Compliance: SS-4, 2848, 4562, 720
+
+Total: 27 forms in extensible JSON format for easy scaling.
+
+
