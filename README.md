@@ -15,13 +15,13 @@
 4. install dependencies
    - `pip install -r requirements.txt `
 
-5. process online pdf's
-   - `python3 process_pdf.py`
+5. process online pdf's (optional)
+   - `python3 utils/process_pdf.py`
   
 6. launch app
    - `python3 app.py`
 
-8. test api
+7. test api
    - `http://127.0.0.1:8000/docs#/`
 
 ## Frontend setup (run in a seperate terminal)
