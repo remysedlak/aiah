@@ -60,9 +60,9 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             {/* Logo/Brand */}
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <img src="FormForge.png" alt="FormForge Logo" className="size-8 bg-gray-100 p-1 rounded-full mr-2" />
-                <span className="text-xl font-bold text-white hidden sm:block">FormForge</span>
-                <span className="text-lg font-bold text-white sm:hidden">FF</span>
+                <img src="FormForge.png" alt="FormForge Logo" className="size-10 bg-gray-100 p-1 rounded-full mr-2" />
+                <span className="text-2xl font-bold text-white hidden sm:block">FormForge</span>
+                <span className="text-xl font-bold text-white sm:hidden">FF</span>
               </div>
             </div>
 
