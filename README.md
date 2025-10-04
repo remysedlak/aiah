@@ -3,30 +3,35 @@
 - Node.js >=22.0.0
 
 ## API Setup
-1. create pip environment
+1. enter backend folder
+   - `cd backend`
+2. create pip environment
    -` python -m venv .venv`
-2. enter environment
+3. enter environment
    - Powershell: `.venv\Scripts\Activate.ps1` 
    - Cmd: `.venv\Scripts\activate`
    - Mac: `source .venv/bin/activate`
 
-3. install dependencies
-   - `pip install requirements.txt `
+4. install dependencies
+   - `pip install -r requirements.txt `
 
-4. start test server
-   - `run.bat` or `run.sh`
+5. process online pdf's
+   - `python3 process_pdf.py`
+  
+6. launch app
+   - `python3 app.py`
 
-5. test api
+8. test api
    - `http://127.0.0.1:8000/docs#/`
 
 ## Frontend setup (run in a seperate terminal)
 1. enter frontend folder
    - `cd frontend`
-3. download project libraries
+2. download project libraries
    - `npm install`
-4. run web server
+3. run web server
    - `npm run dev`
-5. test website
+4. test website
    -  `http://localhost:5173/`
 
 ## JSON Data
