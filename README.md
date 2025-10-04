@@ -36,6 +36,8 @@
 ```bash
    # Simple mode (metadata only)
    python app.py
+```
+```bash
    # Enhanced mode (with PDF content)
    USE_ENHANCED_MODE=true python app.py
 ```
